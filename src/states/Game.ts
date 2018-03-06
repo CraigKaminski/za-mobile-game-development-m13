@@ -10,6 +10,7 @@ interface IRoomData {
 }
 
 export class Game extends Phaser.State {
+  public panelLabel: Phaser.Text;
   private playerData: IPlayerData;
   // private roomData: IRoomData;
   private things: Phaser.Group;
@@ -20,6 +21,14 @@ export class Game extends Phaser.State {
 
   public create() {
     const panel = this.add.sprite(0, 270, 'panel');
+    const style = {
+      align: 'left',
+      fill: '#fff',
+      font: '16px Arial',
+      wordWrap: true,
+      wordWrapWidth: 400,
+    };
+    this.panelLabel = this.add.text(10, 290, '', style);
 
     this.loadRoom();
   }

@@ -1,4 +1,18 @@
 {
-  "background": "livingroom"
-
+  "background": "livingroom",
+  "things": [
+    {
+      "asset": "door",
+      "text": "It's locked...",
+      "x": 220,
+      "y": 88
+    },
+    {
+      "asset": "armless-chair",
+      "text": "What an ugly chair",
+      "x": 500,
+      "y": 150,
+      "type": "inanimated"
+    }
+  ]
 }

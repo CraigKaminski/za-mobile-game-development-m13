@@ -5,13 +5,42 @@
       "asset": "door",
       "text": "It's locked...",
       "x": 220,
-      "y": 88
+      "y": 88,
+      "type": "door"
     },
     {
       "asset": "armless-chair",
       "text": "What an ugly chair",
       "x": 500,
       "y": 150,
+      "type": "inanimated"
+    },
+    {
+      "asset": "key",
+      "text": "Yay! I found a key",
+      "x": 200,
+      "y": 200,
+      "type": "collectable"
+    },
+    {
+      "asset": "tv",
+      "text": "It seems like it's been on for a long time. Disturbing.",
+      "x": 120,
+      "y": 180,
+      "type": "inanimated"
+    },
+    {
+      "asset": "fancy-table",
+      "text": "Old oak table, some suspicious stains",
+      "x": 320,
+      "y": 180,
+      "type": "inanimated"
+    },
+    {
+      "asset": "lamp",
+      "text": "This is a lamp, they are used to illuminate rooms",
+      "x": 320,
+      "y": 120,
       "type": "inanimated"
     }
   ]

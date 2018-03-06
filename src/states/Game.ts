@@ -1,14 +1,18 @@
+import { IThingData, Thing } from '../Prefabs/Thing';
+
 interface IPlayerData {
   room: string;
 }
 
 interface IRoomData {
   background: string;
+  things: IThingData[];
 }
 
 export class Game extends Phaser.State {
   private playerData: IPlayerData;
-  private roomData: IRoomData;
+  // private roomData: IRoomData;
+  private things: Phaser.Group;
 
   public init(playerData: IPlayerData) {
     this.playerData = playerData ? { ...playerData } : { room: 'livingroom' };
@@ -21,8 +25,14 @@ export class Game extends Phaser.State {
   }
 
   private loadRoom() {
-    this.roomData = JSON.parse(this.cache.getText(this.playerData.room));
+    const roomData: IRoomData = JSON.parse(this.cache.getText(this.playerData.room));
 
-    const background = this.add.sprite(0, 0, this.roomData.background);
+    const background = this.add.sprite(0, 0, roomData.background);
+
+    this.things = this.add.group();
+    roomData.things.forEach((thingData) => {
+      const thing = new Thing(this, thingData);
+      this.things.add(thing);
+    });
   }
 }

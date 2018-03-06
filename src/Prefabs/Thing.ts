@@ -1,4 +1,4 @@
-interface IThingData {
+export interface IThingData {
   asset: string;
   x: number;
   y: number;
@@ -6,7 +6,7 @@ interface IThingData {
 
 export class Thing extends Phaser.Sprite {
   private state: Phaser.State;
-  
+
   constructor(state: Phaser.State, data: IThingData) {
     super(state.game, data.x, data.y, data.asset);
 

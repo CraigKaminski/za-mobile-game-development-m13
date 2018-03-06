@@ -12,6 +12,7 @@ export class Preload extends Phaser.State {
     this.load.image('lamp', 'images/livingroom/lamp.png');
     this.load.image('tv', 'images/livingroom/tv.png');
     this.load.image('fancy-table', 'images/livingroom/fancy-table.png');
+    this.load.image('door', 'images/livingroom/door.png');
     this.load.image('openDoor', 'images/livingroom/opendoor.png');
 
     this.load.image('bedroom', 'images/bedroom/bedroom.png');

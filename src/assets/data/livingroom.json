@@ -6,7 +6,13 @@
       "text": "It's locked...",
       "x": 220,
       "y": 88,
-      "type": "door"
+      "type": "door",
+      "interactions": {
+        "yellow-key": {
+          "text": "You've unlocked the door",
+          "asset": "openDoor"
+        }
+      }
     },
     {
       "asset": "armless-chair",
@@ -58,7 +64,12 @@
       "text": "This is a lamp, they are used to illuminate rooms",
       "x": 320,
       "y": 120,
-      "type": "inanimated"
+      "type": "inanimated",
+      "interactions": {
+        "yellow-key": {
+          "text": "Why are you trying to put a key inside a lamp?"
+        }
+      }
     }
   ]
 }

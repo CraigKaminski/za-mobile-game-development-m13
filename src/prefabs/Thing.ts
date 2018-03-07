@@ -1,13 +1,17 @@
-import { Game } from '../states/Game';
+import { Game, IPlayerData } from '../states/Game';
+import { IItemData, Item } from './Item';
 
 interface IInteraction {
+  action?: string;
   asset?: string;
   text?: string;
 }
 
 export interface IThingData {
   asset: string;
+  destination?: string;
   id?: string;
+  isOpen: boolean;
   interactions?: any;
   text: string;
   type: string;
@@ -38,6 +42,22 @@ export class Thing extends Phaser.Sprite {
       this.state.addItem(this.data);
       this.kill();
       return;
+    } else if (
+      this.data.type === 'door'
+      && this.data.destination
+      && this.data.isOpen
+    ) {
+      const playerData: IPlayerData = {
+        items: [],
+        room: this.data.destination,
+      };
+
+      this.state.items.forEachAlive((item: Item) => {
+        playerData.items.push(item.data);
+      }, this);
+
+      this.game.state.start('Game', true, false, playerData);
+      return;
     }
 
     const selectedItem = this.state.selectedItem;
@@ -57,6 +77,12 @@ export class Thing extends Phaser.Sprite {
         if (interaction.asset) {
           this.loadTexture(interaction.asset);
           this.data.asset = interaction.asset;
+        }
+
+        if (interaction.action === 'open-door') {
+          this.data.isOpen = true;
+          selectedItem.kill();
+          this.state.clearSelection();
         }
       }
     }

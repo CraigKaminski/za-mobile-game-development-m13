@@ -1,4 +1,4 @@
-import { IThingData, Thing } from '../Prefabs/Thing';
+import { IThingData, Thing } from '../prefabs/Thing';
 
 interface IPlayerData {
   room: string;

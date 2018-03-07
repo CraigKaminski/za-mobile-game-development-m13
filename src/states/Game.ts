@@ -24,7 +24,7 @@ export class Game extends Phaser.State {
     const style = {
       align: 'left',
       fill: '#fff',
-      font: '16px Arial',
+      font: '16px Prstart',
       wordWrap: true,
       wordWrapWidth: 400,
     };

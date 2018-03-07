@@ -2,6 +2,7 @@ import { Game } from '../states/Game';
 
 export interface IItemData {
   asset: string;
+  id?: string;
 }
 
 export class Item extends Phaser.Sprite {

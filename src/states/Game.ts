@@ -12,10 +12,10 @@ interface IRoomData {
 
 export class Game extends Phaser.State {
   public panelLabel: Phaser.Text;
+  public selectedItem: Item | null;
   private items: Phaser.Group;
   private playerData: IPlayerData;
   // private roomData: IRoomData;
-  private selectedItem: Item | null;
   private things: Phaser.Group;
 
   public init(playerData: IPlayerData) {

@@ -1,7 +1,14 @@
 import { Game } from '../states/Game';
 
+interface IInteraction {
+  asset?: string;
+  text?: string;
+}
+
 export interface IThingData {
   asset: string;
+  id?: string;
+  interactions?: any;
   text: string;
   type: string;
   x: number;
@@ -31,6 +38,27 @@ export class Thing extends Phaser.Sprite {
       this.state.addItem(this.data);
       this.kill();
       return;
+    }
+
+    const selectedItem = this.state.selectedItem;
+
+    if (selectedItem) {
+      if (
+        this.data.interactions
+        && selectedItem.data.id
+        && this.data.interactions[selectedItem.data.id]
+      ) {
+        const interaction: IInteraction = this.data.interactions[selectedItem.data.id];
+
+        if (interaction.text) {
+          this.state.panelLabel.text = interaction.text;
+        }
+
+        if (interaction.asset) {
+          this.loadTexture(interaction.asset);
+          this.data.asset = interaction.asset;
+        }
+      }
     }
   }
 }

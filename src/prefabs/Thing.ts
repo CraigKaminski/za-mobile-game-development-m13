@@ -26,5 +26,11 @@ export class Thing extends Phaser.Sprite {
 
   private touch() {
     this.state.panelLabel.text = this.data.text;
+
+    if (this.data.type === 'collectable') {
+      this.state.addItem(this.data);
+      this.kill();
+      return;
+    }
   }
 }

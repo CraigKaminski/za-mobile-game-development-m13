@@ -20,7 +20,24 @@
       "text": "Yay! I found a key",
       "x": 200,
       "y": 200,
-      "type": "collectable"
+      "type": "collectable",
+      "id": "yellow-key"
+    },
+    {
+      "asset": "key",
+      "text": "Yay! I found a key",
+      "x": 220,
+      "y": 200,
+      "type": "collectable",
+      "id": "yellow-key"
+    },
+    {
+      "asset": "key",
+      "text": "Yay! I found a key",
+      "x": 260,
+      "y": 200,
+      "type": "collectable",
+      "id": "yellow-key"
     },
     {
       "asset": "tv",

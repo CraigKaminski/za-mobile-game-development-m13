@@ -1,3 +1,4 @@
+import { IItemData, Item } from '../prefabs/Item';
 import { IThingData, Thing } from '../prefabs/Thing';
 
 interface IPlayerData {
@@ -11,8 +12,10 @@ interface IRoomData {
 
 export class Game extends Phaser.State {
   public panelLabel: Phaser.Text;
+  private items: Phaser.Group;
   private playerData: IPlayerData;
   // private roomData: IRoomData;
+  private selectedItem: Item | null;
   private things: Phaser.Group;
 
   public init(playerData: IPlayerData) {
@@ -31,6 +34,29 @@ export class Game extends Phaser.State {
     this.panelLabel = this.add.text(10, 290, '', style);
 
     this.loadRoom();
+
+    this.items = this.add.group();
+  }
+
+  public addItem(itemData: IItemData) {
+    const item = new Item(this, 420 + this.items.length * 80, 310, itemData);
+    this.items.add(item);
+    return item;
+  }
+
+  public selectItem(item: Item) {
+    if (this.selectedItem !== item) {
+      this.clearSelection();
+      this.selectedItem = item;
+      this.selectedItem.alpha = 0.5;
+    } else {
+      this.clearSelection();
+    }
+  }
+
+  private clearSelection() {
+    this.selectedItem = null;
+    this.items.setAll('alpha', 1);
   }
 
   private loadRoom() {

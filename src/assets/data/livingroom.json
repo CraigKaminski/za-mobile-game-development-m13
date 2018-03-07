@@ -7,10 +7,13 @@
       "x": 220,
       "y": 88,
       "type": "door",
+      "isOpen": false,
+      "destination": "bedroom",
       "interactions": {
         "yellow-key": {
           "text": "You've unlocked the door",
-          "asset": "openDoor"
+          "asset": "openDoor",
+          "action": "open-door"
         }
       }
     },
